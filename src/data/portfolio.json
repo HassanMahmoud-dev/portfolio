@@ -1,0 +1,147 @@
+{
+  "personalInfo": {
+    "name": "Hassan Mahmoud",
+    "location": "Shubra El Kheima, Egypt",
+    "role": "Full Stack Developer",
+    "specialization": "Vue.js / Node.js",
+    "email": "hmido2622@gmail.com",
+    "phone": "+201145626907",
+    "linkedin": "https://www.linkedin.com/in/hassan-mahmoud-b0a166398/",
+    "github": "https://github.com/HassanMahmoud-dev",
+    "about": {
+      "subtitle": "Discovery",
+      "title": "The Digital Curator",
+      "paragraphs": [
+        "I am a high-end Full Stack Developer specializing in crafting modern, high-performance ERP solutions. My technical mastery lies in bridging the gap between sophisticated Vue.js frontends and robust Node.js backends.",
+        "With a deep understanding of full-stack ecosystems, I focus on building scalable systems where technical logic meets editorial-grade design. I treat code like art, ensuring every line contributes to a seamless, high-tech experience."
+      ]
+    }
+  },
+  "libraries": [
+    { "name": "Vue.js", "icon": "fa-brands fa-vuejs", "color": "text-[#42b883]", "category": "Framework", "url": "https://vuejs.org/" },
+    { "name": "TypeScript", "icon": "fa-solid fa-code", "color": "text-[#3178c6]", "category": "Language", "url": "https://www.typescriptlang.org/" },
+    { "name": "Tailwind", "icon": "fa-solid fa-wind", "color": "text-[#38b2ac]", "category": "Styling", "url": "https://tailwindcss.com/" },
+    { "name": "Bootstrap", "icon": "fa-brands fa-bootstrap", "color": "text-[#7952b3]", "category": "Styling", "url": "https://getbootstrap.com/" },
+    { "name": "Pinia", "icon": "fa-solid fa-seedling", "color": "text-[#ffd859]", "category": "State Management", "url": "https://pinia.vuejs.org/" },
+    { "name": "SweetAlert2", "icon": "fa-solid fa-bell", "color": "text-[#f08d49]", "category": "Notifications", "url": "https://sweetalert2.github.io/" },
+    { "name": "Node.js", "icon": "fa-brands fa-node-js", "color": "text-[#339933]", "category": "Runtime", "url": "https://nodejs.org/" },
+    { "name": "Express", "icon": "fa-solid fa-server", "color": "text-on-surface/80", "category": "Backend", "url": "https://expressjs.com/" },
+    { "name": "Sequelize", "icon": "fa-solid fa-database", "color": "text-[#52b0e7]", "category": "ORM", "url": "https://sequelize.org/" },
+    { "name": "Socket.io", "icon": "fa-solid fa-plug", "color": "text-on-surface", "category": "Real-time", "url": "https://socket.io/" },
+    { "name": "Axios", "icon": "fa-solid fa-arrow-right-arrow-left", "color": "text-[#5a29e4]", "category": "HTTP Client", "url": "https://axios-http.com/" },
+    { "name": "JWT", "icon": "fa-solid fa-key", "color": "text-[#fb015b]", "category": "Auth", "url": "https://jwt.io/" }
+  ],
+  "projects": [
+    {
+      "brand": "ITEX",
+      "title": "ETA E-Invoicing System",
+      "description": "A comprehensive Egyptian Tax Authority integrated system for electronic invoicing, managing complex data synchronization and compliance.",
+      "techStack": ["Vue.js", "Node.js", "OracleDB"],
+      "images": [
+        "/projects/ETA/1.png",
+        "/projects/ETA/2.png",
+        "/projects/ETA/3.png",
+        "/projects/ETA/4.png"
+      ]
+    },
+    {
+      "brand": "ITEX",
+      "title": "Queue Management System",
+      "description": "Real-time customer flow optimization system utilizing Socket.io for instant updates and branch monitoring.",
+      "techStack": ["Socket.io", "Express.js", "Pinia"],
+      "images": [
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuBpkv0Nn33CUUeQucpMUH8VfZ0mgRpYVEUcKmmpWrj0LUY-iTbdc2I8Ogv8CSnKfQRM9wkvQPVBkgvJvcLhDDmJIP7HQX_b3BsyFZYU55jq0pdtEqCe_YeMFDkfS7qqF3AIIsQzLubzEqJ0S9JXAqwGrr8badHcMVQpNndPqJh0wvmzuVz0t8HXJE-zmFT3GqGx02r152aJdB3sRyGrCwQNB-vsgKblIxdXxnOI5ko_uZWHtmosObAO_ljF1iw4VmYFMelaVWgVB2g",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuC3ytoBqshXS8tm6SXnr-QWFWumnnBTH-5UWOpYY1Kdctrq0xrRbDQ9yWVuBTwmKfDtqfj1wOrhGcYxr6jgdSDnyiQlR6zXpF9s8Ph_hbrMTNp7YDnreY9-eC-mZk13crwuVlszgf1W6H69bVz_DYhK4p21bU8eiQNJbqYfLdkps7DUbvVOGkRo_vVRQM9m7Jf3l8-mn7LDy-mf1n-EbJTI7poJS03nR9jFylCfm7nxQjC_1SQf3GL7Ehrzd7Mn47fkicfomuVRnRs",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuDW1w-Zx5GRrYzeAO_J3S0A4fEUVWtKTOEZM8VrIf1j1LkKu4k-c2LDkkUY2Vv4nh95eIN6fuoqPpUK22BjJkNUstwNuUCN7U7ggeQi5C7tWwx0nDZhivBD2syBJzyaNKUHXWfk_ovaeodL9vAbo3t2ExygnvMUAm8Cj_uciR1WRO0j6jMQfRznzscFQymvo2qPJvZoWIAElNMsnkeJyXOwFqp2CUpN4GzS_jgfHFwNBaE7kqSsSIsyy1obtyqEmWIwO7E3LXcVsCY",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuDyX6CDFJdAXPFPwPuZfnF56hfiiQmIb3UOU3M68TnmSnm0x6qH2zrZ_lZ3K1twYgxLeB1K_a74fdI4wBLI9bIi-o8kpqNTRKiTNkxLxN81A3Z3F1t4g4C9oLppXB-dKvIfDTzfebgOdRgsXWhpDNnfpTaT2h08gDfUpH5O-BJ61MO3mlHtrpvuj631etBvX8SDFQgvq9nFINav02fmr2iyGywaoHMKy7N003fwJNS1rQt-8471gMua8FDHM9ArtFEl-_jCIOhr7SM"
+      ]
+    },
+    {
+      "brand": "ITEX",
+      "title": "Hospital Management - HMS",
+      "description": "A robust healthcare ERP managing patient records, appointment scheduling, and pharmacy inventory.",
+      "techStack": ["Vue.js", "MySQL", "Tailwind"],
+      "images": [
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuDCY39sthqyRzUitGJcX6OGiFfrLASsZw3KHFGC1ERlSjkzfZocckuuxD8LvpGU5bYgBxU42k7w9-oyQX5fk44HMtYoZwsWqhkvPcyWFNgWvYm5QBjXPPbB9WmaGbSSeMUa0YEB3_ah3-iWqXmJevtAY5OrU1lu2S-RFnm3aY_HfUaVk-4q93_s24oSNXGAFbFBQmxF_snt6ebUUihyrDFnsqGKlrSAoUaLhySCMmwnRmD4xYql5uZkxNm-Wiu4w9xgp7RHAC6WzSA",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuCn0k9haBZgg_I9YPn0nLafOv7kXwFB52Kxl97nONYjOaVD1pSmon4MI-CpxckqUTaMaBfowb7IRHu8Ki0ClSGc_wqHAdDGh_TYsc8uCCWqhsF4lnOcp04PGRmIS4YQB73-1kuPHmJP4EBBdMIxXBMhpl3l8yqei6ZQgGO4GaIlAyNYidrhXSB_xs7wors3-rBdIfgxhTj8DscqCIgf9eyfhO168EbBwwsLGLGm2KwU14rwOeiOYGmZ-j1SSELENYxS29ai4xDE64I",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuDopsbPHanjgNyKUzVdWWT1PIANXq7Cv61A3AYCIqd9NcF3t6m1nKj9e4bA1H5DXrZ9NPzBM_Vqg2X-iX1WtobufdZo0Z5Y7-AhJi65gp4i22KZChJ5fuZx4t30eaQbRolUXD5ThfMnTaVHKjW_3bxyvOkcS7Gvgta2Twhi92IutSnxpbLG5CFgHnNfNlnUx--jvTXGm_LckMs3oWBTm40LeG4JRjx6q9s6v5Pv0u3TCOsuVQRBscdCztAiUki5MB072pq43U55nc0",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuAsW88wPR1HFyodm2WhzF90HD2DN5Rm6J3hqjcN4hACshCFvvoTfrMu4V_KEklNEDgaVEMBxSYxm3rsrqIEOBZXVetQP3tPORVslpwTtvR1dRrSwrzOEvVDX4gfZ_UQ9NKeLnT6rI_JsZU2xeRhIpnMQKqXFaFsyT9XtUygK0m63UlLZ-1_wvPeV_MC1ghMDLKwWx2fopCaJWEJFkzZPFzpFsOOMM5oFJD4rD_jIBCmnoYo6_tE6WSqoDt7Ex8RROA3rbc45fV8sR4"
+      ]
+    },
+    {
+      "brand": "N SEVEN",
+      "title": "Whatsavy Call Center",
+      "description": "Advanced communications platform for call center agents, focusing on low latency and agent performance metrics.",
+      "techStack": ["Node.js", "TypeScript", "Figma"],
+      "images": [
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuC-UgyI103k8lrTD4f3pF9oMJjLToyxocOqG8q7SmzubStBnvCyAjbcBCvqC1AGtBZKqcQOs8sprEB8mNtrnBx28sZ9E0kPiEIWHzEncB-_eF2IXJsejHXJSeAGUhWepPXtlD9hIQubA7KJuOLlz2aMxgvZ_FndxemXq2sV5XQYK7Ohrx5Tgn90YboCKcmos_oLIZNfbMIjFD5SYj87YrO_1mxKX4P5G0wUZQSYatsxwjqzC_B25tkdVGKuCcVngt45J-njEBUj6no",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuDEBIV0Rqdlwv92bPBLdyj2_q0TJBVscaNLfxMdkyivC4TVzmicm_0yrqcNJbW7Zm1J8-cDDkWBVstH86ZZHV3riTezaxq81e0orhBHM3rH093ENlKis4_qdy89vQs_bMwFbh1bcoUkXLEdEj2rbzMI7B5oyheebkVkysXEY8MKu3kBbOe2m_sWRDvavDg9K0eF-uPdqx4MtCGHf1IRI8eInb3azE9QE-0W2ZDX_LAnWZVgh_ALVy1iXbS91c_k11EIz-2mUnILb9c",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuCY9pQPAUsokcW1_p5Mf6p92UlhTpAjWWYmszwmZnveSWvV4V4_yIMvtfaldj8zr1H8WJMUX5jFWKeygVLU9kHWHtnlejgz_-GK0eZPdQTrSlgR4xt6AjyZNUIrrQxcYWMzbHalo2TS_kywkhNKCCIeecJkpcjDWeb5EXjUocGUHIt9olPOR2NKYUEpHTrhPC6ovpVGJMjOyx2EywPvqL3jM8NOog2xXfY2jMZ2B2vLm_4NO5TzwOp2ewxc7c6btgvznA_AXri7gPA",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuAc0hYRCl1XGUbQvJLFbnzaDv6svZYtvpiFtDOUeInkyAVyLyrPvDTlwM7nL8xHWUlI2y9tkZ2EOtaRYkeEGzpEkST_Q3g9hr3sXDzwTfmUSX-vBjqBewnhpnt_b040FIM_Vr5YLFsDhVGQmbIhdJo3ZaA3flNc4JU-FlpwPHy-oif8t_4MqUleitBtRSIDnErAEpsXoepg0ywWhGmtPhpIBoIjMm3zKabpEG3o6KBZ7GsIT0dxO7wuL-mZJ_a8ZMIehOEEj2N_DvI"
+      ]
+    }
+  ],
+  "experiences": [
+    {
+      "role": "Full Stack Developer",
+      "company": "ITEX",
+      "period": "2023 - Present",
+      "colorClass": "bg-primary",
+      "achievements": [
+        "Architected and implemented the Egyptian E-Invoicing integration using Node.js and Vue.js.",
+        "Developed a real-time Queue Management system reducing customer wait times by 25%.",
+        "Led the modernization of the Hospital Management System frontend using Pinia and Tailwind CSS."
+      ]
+    },
+    {
+      "role": "Associate Software Engineer",
+      "company": "N SEVEN",
+      "period": "2022 - 2023",
+      "colorClass": "bg-secondary",
+      "achievements": [
+        "Contributed to the development of Whatsavy Call Center core communication APIs.",
+        "Maintained and optimized legacy Express.js backends for improved query performance.",
+        "Collaborated with UI/UX designers to translate Figma prototypes into functional Vue components."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Frontend",
+      "icon": "terminal",
+      "color": "text-primary",
+      "items": ["HTML5", "CSS3", "JavaScript", "Vue.js", "Pinia", "Tailwind CSS"]
+    },
+    {
+      "category": "Backend",
+      "icon": "database",
+      "color": "text-secondary",
+      "items": ["Node.js", "Express.js", "Socket.io", "Sequelize"]
+    },
+    {
+      "category": "Database",
+      "icon": "storage",
+      "color": "text-tertiary",
+      "items": ["OracleDB", "MySQL", "PostgreSQL"]
+    },
+    {
+      "category": "Tools",
+      "icon": "architecture",
+      "color": "text-error",
+      "items": ["Git/GitHub", "Postman", "Figma", "Vite"]
+    }
+  ],
+  "education": {
+    "degree": "Bachelor of Information Systems",
+    "institution": "Al Jazeera Higher Institute",
+    "year": "2024",
+    "grade": "Good",
+    "icon": "school"
+  },
+  "heroBadges": [
+    { "name": "Vue.js", "color": "border-secondary/30 bg-secondary/10 text-secondary" },
+    { "name": "Node.js", "color": "border-green-400/30 bg-green-400/10 text-green-400" },
+    { "name": "TypeScript", "color": "border-primary/30 bg-primary/10 text-primary" }
+  ]
+}
+
