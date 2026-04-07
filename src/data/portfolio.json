@@ -2,8 +2,6 @@
   "personalInfo": {
     "name": "Hassan Mahmoud",
     "location": "Shubra El Kheima, Egypt",
-    "role": "Full Stack Developer",
-    "specialization": "Vue.js / Node.js",
     "email": "hmido2622@gmail.com",
     "phone": "+201145626907",
     "linkedin": "https://www.linkedin.com/in/hassan-mahmoud-b0a166398/",
@@ -138,10 +136,25 @@
     "grade": "Good",
     "icon": "school"
   },
-  "heroBadges": [
-    { "name": "Vue.js", "color": "border-secondary/30 bg-secondary/10 text-secondary" },
-    { "name": "Node.js", "color": "border-green-400/30 bg-green-400/10 text-green-400" },
-    { "name": "TypeScript", "color": "border-primary/30 bg-primary/10 text-primary" }
-  ]
+  "profiles": {
+    "FullStack": {
+      "role": "Full Stack Developer",
+      "specialization": "Vue.js / Node.js",
+      "heroBadges": [
+        { "name": "Vue.js", "color": "border-secondary/30 bg-secondary/10 text-secondary" },
+        { "name": "Node.js", "color": "border-green-400/30 bg-green-400/10 text-green-400" },
+        { "name": "TypeScript", "color": "border-primary/30 bg-primary/10 text-primary" }
+      ]
+    },
+    "Frontend": {
+      "role": "Frontend Developer",
+      "specialization": "Vue.js / JavaScript",
+      "heroBadges": [
+        { "name": "Vue.js", "color": "border-secondary/30 bg-secondary/10 text-secondary" },
+        { "name": "TypeScript", "color": "border-primary/30 bg-primary/10 text-primary" },
+        { "name": "Tailwind", "color": "border-blue-400/30 bg-blue-400/10 text-blue-400" }
+      ]
+    }
+  }
 }
 

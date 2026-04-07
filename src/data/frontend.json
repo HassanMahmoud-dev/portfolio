@@ -1,0 +1,63 @@
+{
+  "personalInfo": {
+    "name": "Hassan Mahmoud",
+    "location": "Shubra El Kheima, Egypt",
+    "email": "hmido2622@gmail.com",
+    "phone": "+201145626907",
+    "linkedin": "https://www.linkedin.com/in/hassan-mahmoud-b0a166398/",
+    "github": "https://github.com/HassanMahmoud-dev",
+    "about": {
+      "subtitle": "UI/UX Visionary",
+      "title": "Designing the Future",
+      "paragraphs": [
+        "Crafting high-end, responsive frontends that provide an unmatched user experience.",
+        "Passionate about modern web design, animation, and building beautiful, scalable interfaces."
+      ]
+    }
+  },
+  "role": "Frontend Developer",
+  "specialization": "Vue.js / UI/UX",
+  "heroBadges": [
+    { "name": "Vue.js", "color": "border-secondary/30 bg-secondary/10 text-secondary" },
+    { "name": "TypeScript", "color": "border-primary/30 bg-primary/10 text-primary" },
+    { "name": "Tailwind CSS", "color": "border-blue-400/30 bg-blue-400/10 text-blue-400" }
+  ],
+  "libraries": [
+    { "name": "Vue.js", "icon": "fa-brands fa-vuejs", "color": "text-[#42b883]", "category": "Framework", "url": "https://vuejs.org/" },
+    { "name": "TypeScript", "icon": "fa-solid fa-code", "color": "text-[#3178c6]", "category": "Language", "url": "https://www.typescriptlang.org/" },
+    { "name": "Tailwind", "icon": "fa-solid fa-wind", "color": "text-[#38b2ac]", "category": "Styling", "url": "https://tailwindcss.com/" },
+    { "name": "Figma", "icon": "fa-brands fa-figma", "color": "text-[#f24e1e]", "category": "Design", "url": "https://figma.com/" }
+  ],
+  "projects": [
+    {
+      "brand": "ITEX",
+      "title": "Hospital Management - UI System",
+      "description": "Modernization of the Hospital Management System frontend using Pinia and Tailwind CSS for better accessibility and user engagement.",
+      "techStack": ["Vue.js", "Tailwind", "Figma"],
+      "images": ["https://lh3.googleusercontent.com/aida-public/AB6AXuDCY39sthqyRzUitGJcX6OGiFfrLASsZw3KHFGC1ERlSjkzfZocckuuxD8LvpGU5bYgBxU42k7w9-oyQX5fk44HMtYoZwsWqhkvPcyWFNgWvYm5QBjXPPbB9WmaGbSSeMUa0YEB3_ah3-iWqXmJevtAY5OrU1lu2S-RFnm3aY_HfUaVk-4q93_s24oSNXGAFbFBQmxF_snt6ebUUihyrDFnsqGKlrSAoUaLhySCMmwnRmD4xYql5uZkxNm-Wiu4w9xgp7RHAC6WzSA"]
+    }
+  ],
+  "experiences": [
+    {
+      "role": "Frontend Developer",
+      "company": "ITEX",
+      "period": "2023 - Present",
+      "colorClass": "bg-secondary",
+      "achievements": [
+        "Led the modernization of the Hospital Management System frontend.",
+        "Collaborated with UI/UX designers to translate Figma prototypes into functional Vue components."
+      ]
+    }
+  ],
+  "skills": [
+    { "category": "Core", "icon": "terminal", "color": "text-primary", "items": ["HTML5", "CSS3", "JavaScript", "TypeScript"] },
+    { "category": "UI Frameworks", "icon": "architecture", "color": "text-secondary", "items": ["Vue.js", "Tailwind CSS", "Bootstrap", "Quasar"] }
+  ],
+  "education": {
+    "degree": "Bachelor of Information Systems",
+    "institution": "Al Jazeera Higher Institute",
+    "year": "2024",
+    "grade": "Good",
+    "icon": "school"
+  }
+}
