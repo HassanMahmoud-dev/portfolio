@@ -71,10 +71,7 @@
           <button
             v-for="section in navSections"
             :key="section.id"
-            @click="
-              scrollTo(section.id)
-              mobileMenuOpen = false
-            "
+            @click="handleNavClick(section.id)"
             :class="[
               'text-left px-4 py-3 rounded-xl font-medium transition-all duration-300',
               activeSection === section.id
@@ -485,6 +482,11 @@ function scrollTo(id: string) {
       behavior: 'smooth',
     })
   }
+}
+
+function handleNavClick(id: string) {
+  scrollTo(id)
+  mobileMenuOpen.value = false
 }
 
 function scrollToTop() {
