@@ -7,113 +7,114 @@
     "linkedin": "https://www.linkedin.com/in/hassan-mahmoud-b0a166398/",
     "github": "https://github.com/HassanMahmoud-dev",
     "about": {
-      "subtitle": "Full Stack Mastery",
-      "title": "Architecting the Web",
+      "subtitle": "Engineering Profile",
+      "title": "Building reliable enterprise systems & clean interfaces.",
       "paragraphs": [
-        "Specializing in high-performance ERP solutions, I bridge the gap between sophisticated Vue.js frontends and robust Node.js backends.",
-        "Focusing on building scalable systems where technical logic meets editorial-grade design, ensuring a seamless high-tech experience."
+        "I am a Full Stack Developer focused on building practical, production-ready ERP and business systems. My daily work revolves around connecting structured Vue.js 3 interfaces with resilient Node.js and OracleDB / MySQL backends.",
+        "From government compliance integrations like Egyptian E-Invoicing (ETA) to real-time queue orchestration and hospital operations, I care deeply about maintainable architecture, data integrity, and interfaces that feel calm and intuitive for everyday operators."
       ]
     }
   },
-  "role": "Full Stack Developer",
-  "specialization": "Vue.js / Node.js",
+  "role": "Full Stack Engineer",
+  "specialization": "Vue.js · Node.js · Enterprise Systems",
   "heroBadges": [
-    { "name": "Vue.js", "color": "border-secondary/30 bg-secondary/10 text-secondary" },
-    { "name": "Node.js", "color": "border-green-400/30 bg-green-400/10 text-green-400" },
-    { "name": "TypeScript", "color": "border-primary/30 bg-primary/10 text-primary" }
+    { "name": "Vue 3 & TypeScript", "color": "border-outline-variant bg-surface-container text-on-surface" },
+    { "name": "Node.js & Express", "color": "border-outline-variant bg-surface-container text-on-surface" },
+    { "name": "OracleDB & SQL", "color": "border-outline-variant bg-surface-container text-on-surface" },
+    { "name": "Real-time / Socket.IO", "color": "border-outline-variant bg-surface-container text-on-surface" }
   ],
   "libraries": [
     {
-      "name": "Vue.js",
+      "name": "Vue.js 3",
       "icon": "fa-brands fa-vuejs",
       "color": "text-[#42b883]",
-      "category": "Framework",
+      "category": "Frontend Framework",
       "url": "https://vuejs.org/"
     },
     {
       "name": "Node.js",
       "icon": "fa-brands fa-node-js",
-      "color": "text-[#339933]",
-      "category": "Runtime",
+      "color": "text-[#5fa04e]",
+      "category": "Backend Runtime",
       "url": "https://nodejs.org/"
-    },
-    {
-      "name": "Express",
-      "icon": "fa-solid fa-server",
-      "color": "text-on-surface/80",
-      "category": "Backend",
-      "url": "https://expressjs.com/"
-    },
-    {
-      "name": "OracleDB",
-      "icon": "fa-solid fa-database",
-      "color": "text-[#ff0000]",
-      "category": "Database",
-      "url": "https://www.oracle.com/database/"
-    },
-    {
-      "name": "Sequelize",
-      "icon": "fa-solid fa-database",
-      "color": "text-[#52b0e7]",
-      "category": "ORM",
-      "url": "https://sequelize.org/"
     },
     {
       "name": "TypeScript",
       "icon": "fa-solid fa-code",
       "color": "text-[#3178c6]",
-      "category": "Language",
+      "category": "Type System",
       "url": "https://www.typescriptlang.org/"
     },
     {
-      "name": "Pinia",
+      "name": "Express",
+      "icon": "fa-solid fa-server",
+      "color": "text-on-surface/80",
+      "category": "REST APIs",
+      "url": "https://expressjs.com/"
+    },
+    {
+      "name": "OracleDB",
       "icon": "fa-solid fa-database",
-      "color": "text-[#ffd84b]",
-      "category": "Storage",
+      "color": "text-[#e05246]",
+      "category": "Relational DB",
+      "url": "https://www.oracle.com/database/"
+    },
+    {
+      "name": "Sequelize",
+      "icon": "fa-solid fa-layer-group",
+      "color": "text-[#52b0e7]",
+      "category": "Data ORM",
+      "url": "https://sequelize.org/"
+    },
+    {
+      "name": "Pinia",
+      "icon": "fa-solid fa-box-archive",
+      "color": "text-[#e5c046]",
+      "category": "State Store",
       "url": "https://pinia.vuejs.org/"
-    },
-    {
-      "name": "Axios",
-      "icon": "fa-solid fa-paper-plane",
-      "color": "text-[#5a29e4]",
-      "category": "HTTP",
-      "url": "https://axios-http.com/"
-    },
-    {
-      "name": "Tailwind",
-      "icon": "fa-solid fa-wind",
-      "color": "text-[#38b2ac]",
-      "category": "Styling",
-      "url": "https://tailwindcss.com/"
     },
     {
       "name": "Socket.IO",
       "icon": "fa-solid fa-bolt",
       "color": "text-on-surface",
-      "category": "Realtime",
+      "category": "WebSockets",
       "url": "https://socket.io/"
     },
     {
-      "name": "SweetAlert2",
-      "icon": "fa-solid fa-bell",
-      "color": "text-[#f8bb86]",
-      "category": "Alerts",
-      "url": "https://sweetalert2.github.io/"
+      "name": "Tailwind CSS",
+      "icon": "fa-solid fa-wind",
+      "color": "text-[#38b2ac]",
+      "category": "Design System",
+      "url": "https://tailwindcss.com/"
+    },
+    {
+      "name": "Axios",
+      "icon": "fa-solid fa-arrow-right-arrow-left",
+      "color": "text-[#8a63d2]",
+      "category": "HTTP Client",
+      "url": "https://axios-http.com/"
     },
     {
       "name": "Vite",
       "icon": "fa-solid fa-bolt-lightning",
-      "color": "text-[#646cff]",
-      "category": "Build Tool",
+      "color": "text-[#9478ff]",
+      "category": "Build Tooling",
       "url": "https://vitejs.dev/"
+    },
+    {
+      "name": "SweetAlert2",
+      "icon": "fa-solid fa-bell",
+      "color": "text-[#d4a373]",
+      "category": "UI Feedback",
+      "url": "https://sweetalert2.github.io/"
     }
   ],
   "projects": [
     {
-      "brand": "ITEX",
-      "title": "ETA E-Invoicing System",
-      "description": "A comprehensive Egyptian Tax Authority integrated system for electronic invoicing, managing complex data synchronization and compliance.",
-      "techStack": ["Vue.js", "Node.js", "OracleDB"],
+      "brand": "ITEX · Enterprise ERP",
+      "title": "ETA E-Invoicing Integration System",
+      "description": "End-to-end integration with the Egyptian Tax Authority (ETA) portal for automated electronic invoicing, cryptographic document signing, batch validation, and real-time tax compliance synchronization.",
+      "techStack": ["Vue.js 3", "Node.js", "OracleDB", "REST APIs"],
       "images": [
         "/projects/FullStack/ETA/1.png",
         "/projects/FullStack/ETA/2.png",
@@ -122,10 +123,10 @@
       ]
     },
     {
-      "brand": "ITEX",
-      "title": "Queue Management System",
-      "description": "A real-time queue management solution for call centers and service desks, featuring live ticket tracking, agent dashboards, and performance analytics.",
-      "techStack": ["Vue.js", "Node.js", "Socket.IO"],
+      "brand": "ITEX · Real-Time Operations",
+      "title": "Queue & Branch Management System",
+      "description": "Low-latency customer flow and ticketing platform for service branches and call centers. Features live socket-driven waiting screens, agent counter controls, and service-time analytics.",
+      "techStack": ["Vue.js 3", "Node.js", "Socket.IO", "Pinia"],
       "images": [
         "/projects/FullStack/Queue/1.png",
         "/projects/FullStack/Queue/2.png",
@@ -134,10 +135,10 @@
       ]
     },
     {
-      "brand": "ITEX",
-      "title": "Hospital Management System",
-      "description": "A comprehensive healthcare management platform for hospitals, featuring patient records, appointment scheduling, billing, and medical staff management.",
-      "techStack": ["Vue.js", "Node.js", "OracleDB"],
+      "brand": "ITEX · Healthcare ERP",
+      "title": "Hospital Management System (HMS)",
+      "description": "Comprehensive clinical and administrative platform covering patient admission records, outpatient scheduling, billing workflows, and medical staff coordination.",
+      "techStack": ["Vue.js 3", "Node.js", "OracleDB", "Tailwind CSS"],
       "images": [
         "/projects/FullStack/hospital/1.jpeg",
         "/projects/FullStack/hospital/2.png",
@@ -150,45 +151,46 @@
     {
       "role": "Full Stack Developer",
       "company": "ITEX",
-      "period": "Apr 2025 - Present",
+      "period": "Apr 2025 — Present",
       "colorClass": "bg-primary",
       "achievements": [
-        "Architected and implemented the Egyptian E-Invoicing integration.",
-        "Developed a real-time Queue Management system."
+        "Architected and delivered the Egyptian Tax Authority (ETA) E-Invoicing integration using Node.js, Vue.js, and OracleDB.",
+        "Engineered a real-time Queue Management system with Socket.IO for live ticket tracking and branch agent dashboards.",
+        "Maintained and scaled core modules of the Hospital Management System (HMS) across frontend state and backend database queries."
       ]
     }
   ],
   "skills": [
     {
-      "category": "Frontend",
-      "icon": "terminal",
+      "category": "Frontend Architecture",
+      "icon": "web",
       "color": "text-primary",
-      "items": ["Vue.js 3", "Pinia", "Tailwind CSS", "TypeScript"]
+      "items": ["Vue.js 3 (Composition API)", "TypeScript", "Pinia", "Tailwind CSS", "Responsive UI"]
     },
     {
-      "category": "Backend",
-      "icon": "settings",
+      "category": "Backend & APIs",
+      "icon": "dns",
       "color": "text-secondary",
-      "items": ["Node.js", "Express.js", "Sequelize ORM"]
+      "items": ["Node.js", "Express.js", "Socket.IO", "Sequelize ORM", "RESTful Architecture"]
     },
     {
-      "category": "Database",
+      "category": "Data & Storage",
       "icon": "database",
       "color": "text-tertiary",
-      "items": ["OracleDB", "MySQL"]
+      "items": ["OracleDB", "MySQL", "Query Optimization", "Schema Design"]
     },
     {
-      "category": "Tools & Dev",
+      "category": "Workflow & Tooling",
       "icon": "terminal",
-      "color": "text-green-500",
-      "items": ["Git/GitHub", "Vite", "ESLint"]
+      "color": "text-primary",
+      "items": ["Git & GitHub", "Vite", "ESLint / Prettier", "Postman"]
     }
   ],
   "education": {
-    "degree": "Bachelor of Information Systems",
+    "degree": "B.Sc. in Information Systems",
     "institution": "Al Jazeera Higher Institute",
     "year": "2024",
-    "grade": "Good",
+    "grade": "Grade: Good",
     "icon": "school"
   }
 }

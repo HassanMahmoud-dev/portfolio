@@ -1,328 +1,431 @@
 <template>
-  <!-- TopNavBar -->
-  <header
-    :class="[
-      'fixed top-0 w-full z-50 transition-all duration-500',
-      scrolledDown
-        ? 'bg-background/80 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.2)]'
-        : 'bg-transparent',
-    ]"
-  >
-    <nav class="flex justify-between items-center max-w-7xl mx-auto px-6 md:px-8 h-20">
-      <div
-        class="text-xl font-bold tracking-tighter font-headline gradient-text cursor-pointer"
-        @click="scrollTo('hero')"
-      >
-        {{ currentData.personalInfo.name }}
-      </div>
-
-      <!-- Desktop Nav -->
-      <div class="hidden md:flex items-center gap-8">
-        <button
-          v-for="section in navSections"
-          :key="section.id"
-          @click="scrollTo(section.id)"
-          :class="[
-            'nav-link text-sm font-medium transition-colors duration-300',
-            activeSection === section.id
-              ? 'text-primary active'
-              : 'text-on-surface/50 hover:text-on-surface',
-          ]"
-        >
-          {{ section.label }}
-        </button>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <button
-          @click="toggleTheme"
-          class="w-10 h-10 rounded-xl flex items-center justify-center text-on-surface/50 hover:text-primary hover:bg-primary/10 transition-all duration-300"
-          aria-label="Toggle Theme"
-        >
-          <span class="material-symbols-outlined">{{ isDark ? 'light_mode' : 'dark_mode' }}</span>
-        </button>
-
-        <!-- Mobile Hamburger -->
-        <button
-          @click="mobileMenuOpen = !mobileMenuOpen"
-          class="md:hidden w-10 h-10 rounded-xl flex items-center justify-center text-on-surface/50 hover:text-primary hover:bg-primary/10 transition-all duration-300"
-          aria-label="Menu"
-        >
-          <span class="material-symbols-outlined">{{ mobileMenuOpen ? 'close' : 'menu' }}</span>
-        </button>
-
-        <a
-          class="hidden md:inline-flex items-center gap-2 bg-gradient-to-r from-primary to-primary-container text-on-primary px-5 py-2 rounded-xl font-bold text-sm hover:shadow-[0_0_20px_var(--primary-glow)] hover:scale-[1.02] transition-all duration-300"
-          :href="'mailto:' + currentData.personalInfo.email"
-        >
-          <span class="material-symbols-outlined text-base">mail</span>
-          Contact
-        </a>
-      </div>
-    </nav>
-
-    <!-- Mobile Menu Drawer -->
-    <Transition name="slide-down">
-      <div
-        v-if="mobileMenuOpen"
-        class="md:hidden bg-background/95 backdrop-blur-2xl border-t border-outline-variant/10 px-6 pb-6 pt-2"
-      >
-        <div class="flex flex-col gap-1">
-          <button
-            v-for="section in navSections"
-            :key="section.id"
-            @click="handleNavClick(section.id)"
-            :class="[
-              'text-left px-4 py-3 rounded-xl font-medium transition-all duration-300',
-              activeSection === section.id
-                ? 'bg-primary/10 text-primary'
-                : 'text-on-surface/60 hover:bg-surface-container hover:text-on-surface',
-            ]"
-          >
-            {{ section.label }}
-          </button>
-          <a
-            class="mt-2 text-center bg-gradient-to-r from-primary to-primary-container text-on-primary px-5 py-3 rounded-xl font-bold text-sm"
-            :href="'mailto:' + currentData.personalInfo.email"
-          >
-            Contact Me
-          </a>
-        </div>
-      </div>
-    </Transition>
-  </header>
-
-  <main class="relative overflow-hidden pt-20">
-    <!-- Tab Switcher -->
-    <div class="max-w-7xl mx-auto px-6 md:px-8 mt-10 md:mt-12 mb-8">
-      <div class="flex justify-center">
-        <div
-          class="inline-flex p-1.5 bg-surface-container-high/80 rounded-2xl border border-outline-variant/15 shadow-xl relative backdrop-blur-xl"
-        >
-          <!-- Sliding indicator -->
-          <div
-            class="absolute top-1.5 h-[calc(100%-12px)] rounded-xl transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"
-            :class="
-              activeTab === 'FullStack'
-                ? 'left-1.5 w-[calc(50%-6px)] bg-gradient-to-r from-primary to-primary-container'
-                : 'left-[calc(50%+3px)] w-[calc(50%-6px)] bg-gradient-to-r from-secondary to-secondary-container'
-            "
-          ></div>
-          <button
-            @click="activeTab = 'FullStack'"
-            :class="[
-              'relative z-10 px-6 md:px-8 py-3 rounded-xl text-sm font-bold transition-all duration-500 flex items-center gap-2',
-              activeTab === 'FullStack'
-                ? 'text-on-primary'
-                : 'text-on-surface/50 hover:text-on-surface',
-            ]"
-          >
-            <span class="material-symbols-outlined text-base">code</span>
-            Full Stack Developer
-          </button>
-          <button
-            @click="activeTab = 'Frontend'"
-            :class="[
-              'relative z-10 px-6 md:px-8 py-3 rounded-xl text-sm font-bold transition-all duration-500 flex items-center gap-2',
-              activeTab === 'Frontend'
-                ? 'text-on-primary'
-                : 'text-on-surface/50 hover:text-on-surface',
-            ]"
-          >
-            <span class="material-symbols-outlined text-base">palette</span>
-            Frontend Developer
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section
-      id="hero"
-      class="relative min-h-[80vh] flex items-center justify-center px-6 md:px-8 py-20 md:py-24 overflow-hidden"
+  <div class="min-h-screen bg-architectural-grid relative">
+    <!-- Top Navigation -->
+    <header
+      :class="[
+        'fixed top-0 w-full z-50 transition-all duration-300',
+        scrolledDown
+          ? 'bg-background/90 backdrop-blur-md border-b border-outline-variant/60'
+          : 'bg-transparent',
+      ]"
     >
-      <!-- Decorative blobs -->
-      <div class="blob blob-1 w-[500px] h-[500px] bg-primary/15 top-[-10%] left-[-5%]"></div>
-      <div class="blob blob-2 w-[400px] h-[400px] bg-secondary/10 bottom-[-5%] right-[-5%]"></div>
-      <div class="blob blob-3 w-[300px] h-[300px] bg-tertiary/8 top-[50%] left-[50%]"></div>
-      <div class="absolute inset-0 hero-gradient opacity-50"></div>
-
-      <div
-        class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-center relative z-10"
-      >
-        <div class="space-y-8">
-          <div class="space-y-5">
-            <div
-              class="reveal flex items-center gap-2 text-secondary font-medium tracking-widest uppercase text-xs"
-            >
-              <span class="material-symbols-outlined text-sm">location_on</span>
-              {{ currentData.personalInfo.location }}
-            </div>
-            <h1
-              class="reveal delay-100 text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tighter text-on-surface font-headline text-glow"
-            >
+      <nav class="flex justify-between items-center max-w-6xl mx-auto px-6 md:px-8 h-20">
+        <!-- Brand / Monogram -->
+        <button
+          @click="scrollTo('hero')"
+          class="group flex items-center gap-3 text-left focus:outline-none cursor-pointer"
+        >
+          <span
+            class="w-8 h-8 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center font-mono text-xs font-medium text-primary group-hover:border-primary/50 transition-colors"
+          >
+            HM
+          </span>
+          <div class="flex flex-col">
+            <span class="text-sm font-semibold tracking-tight text-on-surface leading-none">
               {{ currentData.personalInfo.name }}
-            </h1>
-            <div class="reveal delay-200">
-              <p class="text-xl md:text-2xl text-on-surface-variant font-light leading-relaxed">
-                <span class="typing-cursor">{{ displayedRole }}</span>
-                <span class="text-primary mx-2">·</span>
-                {{ currentProfile.specialization }}
-              </p>
-            </div>
-          </div>
-          <div class="reveal delay-300 flex flex-wrap gap-3">
-            <span
-              v-for="badge in currentProfile.heroBadges"
-              :key="badge.name"
-              :class="badge.color"
-              class="px-4 py-1.5 rounded-full text-xs font-bold border backdrop-blur-sm"
-            >
-              {{ badge.name }}
+            </span>
+            <span class="font-mono text-[10px] text-on-surface-variant mt-1">
+              {{ activeTab === 'FullStack' ? 'Full Stack' : 'Frontend' }} · Mid-Level
             </span>
           </div>
-          <div class="reveal delay-300 flex flex-col gap-3 text-on-surface-variant">
+        </button>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center gap-7">
+          <button
+            v-for="(section, idx) in navSections"
+            :key="section.id"
+            @click="scrollTo(section.id)"
+            :class="[
+              'nav-link text-xs font-medium tracking-wide transition-colors duration-200 cursor-pointer flex items-center gap-1.5 py-1',
+              activeSection === section.id
+                ? 'text-on-surface active'
+                : 'text-on-surface-variant hover:text-on-surface',
+            ]"
+          >
+            <span class="font-mono text-[10px] text-primary/70">0{{ idx + 1 }}</span>
+            {{ section.label }}
+          </button>
+        </div>
+
+        <!-- Actions (Role Switcher, Theme, Contact) -->
+        <div class="flex items-center gap-2.5">
+          <!-- Compact Role Switcher in Header for quick access -->
+          <div
+            class="hidden sm:inline-flex p-1 bg-surface-container border border-outline-variant rounded-lg"
+            role="tablist"
+            aria-label="Engineering Focus"
+          >
+            <button
+              @click="activeTab = 'FullStack'"
+              :class="[
+                'px-2.5 py-1 rounded-md text-xs font-medium transition-all duration-200 cursor-pointer',
+                activeTab === 'FullStack'
+                  ? 'bg-primary text-on-primary shadow-xs'
+                  : 'text-on-surface-variant hover:text-on-surface',
+              ]"
+            >
+              Full Stack
+            </button>
+            <button
+              @click="activeTab = 'Frontend'"
+              :class="[
+                'px-2.5 py-1 rounded-md text-xs font-medium transition-all duration-200 cursor-pointer',
+                activeTab === 'Frontend'
+                  ? 'bg-primary text-on-primary shadow-xs'
+                  : 'text-on-surface-variant hover:text-on-surface',
+              ]"
+            >
+              Frontend
+            </button>
+          </div>
+
+          <button
+            @click="toggleTheme"
+            class="w-9 h-9 rounded-lg border border-outline-variant bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:border-outline transition-colors duration-200 cursor-pointer"
+            :aria-label="isDark ? 'Switch to light theme' : 'Switch to dark theme'"
+            :title="isDark ? 'Light mode' : 'Dark mode'"
+          >
+            <span class="material-symbols-outlined text-[18px]">{{
+              isDark ? 'light_mode' : 'dark_mode'
+            }}</span>
+          </button>
+
+          <!-- Mobile Hamburger -->
+          <button
+            @click="mobileMenuOpen = !mobileMenuOpen"
+            class="md:hidden w-9 h-9 rounded-lg border border-outline-variant bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors duration-200"
+            aria-label="Toggle Menu"
+          >
+            <span class="material-symbols-outlined text-[18px]">{{
+              mobileMenuOpen ? 'close' : 'menu'
+            }}</span>
+          </button>
+
+          <a
+            class="hidden lg:inline-flex items-center gap-2 bg-on-surface text-background px-4 py-2 rounded-lg font-medium text-xs hover:opacity-90 transition-opacity duration-200"
+            :href="'mailto:' + currentData.personalInfo.email"
+          >
+            <span>Get in touch</span>
+            <span class="material-symbols-outlined text-[15px]">arrow_outward</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu Drawer -->
+      <Transition name="slide-down">
+        <div
+          v-if="mobileMenuOpen"
+          class="md:hidden bg-background/95 backdrop-blur-xl border-b border-outline-variant px-6 pb-6 pt-3"
+        >
+          <!-- Mobile Role Switcher -->
+          <div class="flex sm:hidden p-1 bg-surface-container border border-outline-variant rounded-lg mb-4">
+            <button
+              @click="activeTab = 'FullStack'"
+              :class="[
+                'flex-1 py-2 rounded-md text-xs font-medium transition-all duration-200',
+                activeTab === 'FullStack'
+                  ? 'bg-primary text-on-primary'
+                  : 'text-on-surface-variant',
+              ]"
+            >
+              Full Stack Focus
+            </button>
+            <button
+              @click="activeTab = 'Frontend'"
+              :class="[
+                'flex-1 py-2 rounded-md text-xs font-medium transition-all duration-200',
+                activeTab === 'Frontend'
+                  ? 'bg-primary text-on-primary'
+                  : 'text-on-surface-variant',
+              ]"
+            >
+              Frontend Focus
+            </button>
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <button
+              v-for="(section, idx) in navSections"
+              :key="section.id"
+              @click="handleNavClick(section.id)"
+              :class="[
+                'text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center gap-3',
+                activeSection === section.id
+                  ? 'bg-surface-container-high text-primary'
+                  : 'text-on-surface-variant hover:bg-surface-container hover:text-on-surface',
+              ]"
+            >
+              <span class="font-mono text-xs text-primary/70">0{{ idx + 1 }}</span>
+              {{ section.label }}
+            </button>
             <a
-              class="flex items-center gap-3 hover:text-primary transition-colors duration-300 group"
+              class="mt-3 text-center bg-primary text-on-primary px-4 py-2.5 rounded-lg font-medium text-xs"
               :href="'mailto:' + currentData.personalInfo.email"
             >
-              <span
-                class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform duration-300"
-                >mail</span
-              >
-              <span class="text-sm md:text-base">{{ currentData.personalInfo.email }}</span>
-            </a>
-            <a
-              class="flex items-center gap-3 hover:text-primary transition-colors duration-300 group"
-              :href="'tel:' + currentData.personalInfo.phone"
-            >
-              <span
-                class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform duration-300"
-                >call</span
-              >
-              <span class="text-sm md:text-base">{{ currentData.personalInfo.phone }}</span>
-            </a>
-          </div>
-          <div class="reveal delay-400 flex gap-5">
-            <a
-              class="w-11 h-11 rounded-xl flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-secondary/10 transition-all duration-300 hover:scale-110"
-              :href="currentData.personalInfo.linkedin"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-            >
-              <i class="fa-brands fa-linkedin text-xl"></i>
-            </a>
-            <a
-              class="w-11 h-11 rounded-xl flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-secondary/10 transition-all duration-300 hover:scale-110"
-              :href="currentData.personalInfo.github"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-            >
-              <i class="fa-brands fa-github text-xl"></i>
-            </a>
-            <a
-              class="w-11 h-11 rounded-xl flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-secondary/10 transition-all duration-300 hover:scale-110"
-              href="https://drive.google.com/file/d/1jLgM2r7PBa2IKNg_Ok81payeakBsQdUr/view"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="CV/Resume"
-            >
-              <i class="fa-solid fa-file-lines text-xl"></i>
+              Email Me Directly
             </a>
           </div>
         </div>
+      </Transition>
+    </header>
 
-        <!-- Profile Image -->
-        <div class="reveal-scale delay-200 relative flex justify-center">
-          <div class="relative w-fit h-fit">
-            <div class="absolute inset-0 bg-primary/15 blur-[80px] rounded-full scale-125"></div>
-            <div class="gradient-ring rounded-[2.5rem] md:rounded-[3rem]">
-              <div
-                class="relative rounded-[2.5rem] md:rounded-[3rem] overflow-hidden bg-background"
+    <main class="pt-20">
+      <!-- Hero Section -->
+      <section
+        id="hero"
+        class="relative max-w-6xl mx-auto px-6 md:px-8 pt-12 pb-20 md:pt-20 md:pb-28"
+      >
+        <!-- Top Status Bar / Role Lens Switcher -->
+        <div
+          class="reveal flex flex-wrap items-center justify-between gap-4 pb-8 mb-10 border-b border-outline-variant/60"
+        >
+          <div class="flex items-center gap-3">
+            <span class="relative flex h-2 w-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"
+              ></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            <span class="font-mono text-xs text-on-surface-variant">
+              Based in {{ currentData.personalInfo.location }} · Available for new opportunities
+            </span>
+          </div>
+
+          <div class="flex items-center gap-2 font-mono text-xs text-on-surface-variant">
+            <span>Lens:</span>
+            <button
+              @click="activeTab = 'FullStack'"
+              :class="[
+                'underline underline-offset-4 cursor-pointer transition-colors',
+                activeTab === 'FullStack'
+                  ? 'text-primary font-medium'
+                  : 'hover:text-on-surface decoration-transparent',
+              ]"
+            >
+              Full-Stack ERP
+            </button>
+            <span>/</span>
+            <button
+              @click="activeTab = 'Frontend'"
+              :class="[
+                'underline underline-offset-4 cursor-pointer transition-colors',
+                activeTab === 'Frontend'
+                  ? 'text-primary font-medium'
+                  : 'hover:text-on-surface decoration-transparent',
+              ]"
+            >
+              Frontend UI
+            </button>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-10 items-start">
+          <!-- Left Editorial Column (8 cols) -->
+          <div class="lg:col-span-8 space-y-8">
+            <div class="space-y-4">
+              <div class="reveal font-mono text-xs uppercase tracking-widest text-primary">
+                {{ currentProfile.role }} — {{ currentProfile.specialization }}
+              </div>
+
+              <h1
+                class="reveal delay-100 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-on-surface leading-[1.12]"
               >
+                Crafting dependable
+                <span class="font-serif italic font-normal text-primary">enterprise software</span>
+                &amp; thoughtful web interfaces.
+              </h1>
+
+              <p
+                class="reveal delay-200 text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed pt-2"
+              >
+                I’m <strong class="text-on-surface font-medium">{{ currentData.personalInfo.name }}</strong>,
+                a software engineer experienced in building full-lifecycle ERP platforms, government
+                tax integrations, and real-time operational tools using Vue.js and Node.js.
+              </p>
+            </div>
+
+            <!-- Technical Focus Pills -->
+            <div class="reveal delay-200 flex flex-wrap gap-2">
+              <span
+                v-for="badge in currentProfile.heroBadges"
+                :key="badge.name"
+                class="px-3 py-1 rounded-md font-mono text-xs border border-outline-variant bg-surface-container text-on-surface-variant"
+              >
+                {{ badge.name }}
+              </span>
+            </div>
+
+            <!-- Primary CTA & Quick Links -->
+            <div class="reveal delay-300 flex flex-wrap items-center gap-4 pt-2">
+              <button
+                @click="scrollTo('projects')"
+                class="px-5 py-2.5 rounded-lg bg-primary text-on-primary font-medium text-sm hover:opacity-95 transition-opacity flex items-center gap-2 cursor-pointer"
+              >
+                <span>Selected Case Studies</span>
+                <span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+              </button>
+
+              <a
+                href="https://drive.google.com/file/d/1jLgM2r7PBa2IKNg_Ok81payeakBsQdUr/view"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-5 py-2.5 rounded-lg border border-outline-variant bg-surface-container text-on-surface font-medium text-sm hover:border-outline transition-colors flex items-center gap-2"
+              >
+                <span class="material-symbols-outlined text-[18px] text-primary">description</span>
+                <span>Read Resume / CV</span>
+              </a>
+
+              <div class="flex items-center gap-2 ml-auto sm:ml-2">
+                <a
+                  :href="currentData.personalInfo.github"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                  class="w-10 h-10 rounded-lg border border-outline-variant bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:border-outline transition-colors"
+                >
+                  <i class="fa-brands fa-github text-base"></i>
+                </a>
+                <a
+                  :href="currentData.personalInfo.linkedin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  class="w-10 h-10 rounded-lg border border-outline-variant bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:border-outline transition-colors"
+                >
+                  <i class="fa-brands fa-linkedin-in text-base"></i>
+                </a>
+                <a
+                  :href="'mailto:' + currentData.personalInfo.email"
+                  aria-label="Email"
+                  class="w-10 h-10 rounded-lg border border-outline-variant bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:border-outline transition-colors"
+                >
+                  <span class="material-symbols-outlined text-[18px]">mail</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Key Engineering Highlights Bar -->
+            <div
+              class="reveal delay-400 grid grid-cols-3 gap-4 pt-8 border-t border-outline-variant/60 max-w-xl"
+            >
+              <div>
+                <div class="font-mono text-xl md:text-2xl font-semibold text-on-surface">ERP &amp; B2B</div>
+                <div class="text-xs text-on-surface-variant mt-0.5">Core Domain Focus</div>
+              </div>
+              <div>
+                <div class="font-mono text-xl md:text-2xl font-semibold text-on-surface">Vue 3 + Node</div>
+                <div class="text-xs text-on-surface-variant mt-0.5">Primary Stack</div>
+              </div>
+              <div>
+                <div class="font-mono text-xl md:text-2xl font-semibold text-on-surface">Production</div>
+                <div class="text-xs text-on-surface-variant mt-0.5">ETA, HMS &amp; Real-time</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Portrait Column (4 cols) - Framed like an editorial dossier card -->
+          <div class="lg:col-span-4 reveal-scale delay-200">
+            <div class="surface-card rounded-2xl p-3 max-w-xs mx-auto lg:max-w-none">
+              <div class="relative rounded-xl overflow-hidden bg-surface-container-highest aspect-[4/5]">
                 <img
-                  alt="Developer Portrait"
-                  class="w-full max-w-[18rem] md:max-w-[24rem] h-auto object-contain hover:scale-105 transition-all duration-700"
+                  alt="Hassan Mahmoud"
+                  class="w-full h-full object-cover object-top grayscale-[15%] contrast-[1.02] hover:grayscale-0 transition-all duration-500"
                   src="/images/Mypicture.jpg"
                 />
+              </div>
+              <div class="pt-3 pb-1 px-1 flex items-center justify-between text-xs">
+                <div>
+                  <p class="font-medium text-on-surface">{{ currentData.personalInfo.name }}</p>
+                  <p class="font-mono text-[11px] text-on-surface-variant">
+                    {{ currentData.personalInfo.email }}
+                  </p>
+                </div>
+                <a
+                  :href="'tel:' + currentData.personalInfo.phone"
+                  class="px-2.5 py-1 rounded-md bg-surface-container-high border border-outline-variant font-mono text-[11px] text-primary hover:bg-primary hover:text-on-primary transition-colors"
+                >
+                  Call
+                </a>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Content Sections -->
-    <transition name="fade" mode="out-in">
-      <component :is="activeTab === 'FullStack' ? FullStackSection : FrontendSection" />
-    </transition>
-  </main>
-
-  <!-- Back to Top -->
-  <Transition name="fade">
-    <button
-      v-if="scrolledDown"
-      @click="scrollToTop"
-      class="fixed bottom-8 right-8 z-40 w-12 h-12 rounded-2xl bg-primary/20 backdrop-blur-xl border border-primary/20 text-primary hover:bg-primary hover:text-on-primary transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_var(--primary-glow)] flex items-center justify-center"
-      aria-label="Back to top"
-    >
-      <span class="material-symbols-outlined">arrow_upward</span>
-    </button>
-  </Transition>
-
-  <!-- Footer -->
-  <footer class="w-full bg-surface transition-colors duration-500">
-    <div class="section-divider"></div>
-    <div
-      class="flex flex-col md:flex-row justify-between items-center py-10 px-6 md:px-8 max-w-7xl mx-auto gap-4"
-    >
-      <div class="text-lg font-bold font-headline gradient-text">
-        {{ currentData.personalInfo.name }}
+      <div class="max-w-6xl mx-auto px-6 md:px-8">
+        <div class="section-divider"></div>
       </div>
-      <p class="text-[0.75rem] font-medium text-on-surface/30 tracking-wider">
-        &copy; {{ new Date().getFullYear() }} {{ currentData.personalInfo.name }} &middot; Digital
-        Curator
-      </p>
-      <div class="flex gap-4">
-        <a
-          class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface/30 hover:text-secondary hover:bg-secondary/10 transition-all duration-300 hover:scale-110"
-          :href="currentData.personalInfo.linkedin"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-        >
-          <i class="fa-brands fa-linkedin text-base"></i>
-        </a>
-        <a
-          class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface/30 hover:text-secondary hover:bg-secondary/10 transition-all duration-300 hover:scale-110"
-          :href="currentData.personalInfo.github"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-        >
-          <i class="fa-brands fa-github text-base"></i>
-        </a>
-        <a
-          class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface/30 hover:text-secondary hover:bg-secondary/10 transition-all duration-300 hover:scale-110"
-          href="https://drive.google.com/file/d/1jLgM2r7PBa2IKNg_Ok81payeakBsQdUr/view"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="CV/Resume"
-        >
-          <i class="fa-solid fa-file-lines text-base"></i>
-        </a>
-        <a
-          class="w-9 h-9 rounded-lg flex items-center justify-center text-primary/60 hover:text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110"
-          :href="'mailto:' + currentData.personalInfo.email"
-          aria-label="Email"
-        >
-          <i class="fa-solid fa-envelope text-base"></i>
-        </a>
+
+      <!-- Content Sections -->
+      <transition name="fade" mode="out-in">
+        <component :is="activeTab === 'FullStack' ? FullStackSection : FrontendSection" />
+      </transition>
+    </main>
+
+    <!-- Back to Top -->
+    <Transition name="fade">
+      <button
+        v-if="scrolledDown"
+        @click="scrollToTop"
+        class="fixed bottom-6 right-6 z-40 w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all duration-200 shadow-md flex items-center justify-center cursor-pointer"
+        aria-label="Back to top"
+      >
+        <span class="material-symbols-outlined text-[18px]">arrow_upward</span>
+      </button>
+    </Transition>
+
+    <!-- Footer -->
+    <footer class="w-full border-t border-outline-variant/60 bg-surface/50">
+      <div
+        class="flex flex-col sm:flex-row justify-between items-center py-8 px-6 md:px-8 max-w-6xl mx-auto gap-4"
+      >
+        <div class="flex items-center gap-3">
+          <span
+            class="w-6 h-6 rounded bg-surface-container-high border border-outline-variant flex items-center justify-center font-mono text-[10px] font-medium text-primary"
+          >
+            HM
+          </span>
+          <span class="text-xs text-on-surface-variant">
+            &copy; {{ new Date().getFullYear() }} {{ currentData.personalInfo.name }}. Built with Vue 3 &amp; TypeScript.
+          </span>
+        </div>
+
+        <div class="flex items-center gap-5 font-mono text-xs text-on-surface-variant">
+          <a
+            class="hover:text-primary transition-colors"
+            :href="currentData.personalInfo.github"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          <a
+            class="hover:text-primary transition-colors"
+            :href="currentData.personalInfo.linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+          <a
+            class="hover:text-primary transition-colors"
+            href="https://drive.google.com/file/d/1jLgM2r7PBa2IKNg_Ok81payeakBsQdUr/view"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Resume
+          </a>
+          <a
+            class="hover:text-primary transition-colors"
+            :href="'mailto:' + currentData.personalInfo.email"
+          >
+            Email
+          </a>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -330,7 +433,6 @@ import { ref, onMounted, onUnmounted, defineAsyncComponent, computed, watch } fr
 import fullstackData from '@/data/fullstack.json'
 import frontendData from '@/data/frontend.json'
 
-// Components
 const FullStackSection = defineAsyncComponent(() => import('@/components/FullStackSection.vue'))
 const FrontendSection = defineAsyncComponent(() => import('@/components/FrontendSection.vue'))
 
@@ -341,10 +443,9 @@ const scrolledDown = ref(false)
 const activeSection = ref('hero')
 
 const navSections = [
-  { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'libraries', label: 'Libraries' },
-  { id: 'projects', label: 'Projects' },
+  { id: 'about', label: 'Overview' },
+  { id: 'projects', label: 'Work' },
+  { id: 'skills', label: 'Stack' },
   { id: 'experience', label: 'Experience' },
 ]
 
@@ -362,40 +463,16 @@ const currentProfile = computed<Profile>(() => ({
   heroBadges: currentData.value.heroBadges,
 }))
 
-// Typing animation
-const displayedRole = ref('')
-const fullRole = computed(() => currentProfile.value.role)
-let typingTimeout: ReturnType<typeof setTimeout> | null = null
-
-function typeText(text: string, index = 0) {
-  if (typingTimeout) clearTimeout(typingTimeout)
-  if (index <= text.length) {
-    displayedRole.value = text.slice(0, index)
-    typingTimeout = setTimeout(() => typeText(text, index + 1), 60)
-  }
-}
-
-watch(
-  fullRole,
-  (newRole) => {
-    displayedRole.value = ''
-    typeText(newRole)
-  },
-  { immediate: false },
-)
-
-// Scroll handling
 function handleScroll() {
-  scrolledDown.value = window.scrollY > 50
+  scrolledDown.value = window.scrollY > 40
 
-  // Scroll spy
-  const sections: string[] = ['hero', 'about', 'skills', 'libraries', 'projects', 'experience']
+  const sections: string[] = ['hero', 'about', 'projects', 'skills', 'experience']
   for (let i = sections.length - 1; i >= 0; i--) {
     const sectionId: string = sections[i]!
     const el = document.getElementById(sectionId)
     if (el) {
       const rect = el.getBoundingClientRect()
-      if (rect.top <= 150) {
+      if (rect.top <= 160) {
         activeSection.value = sectionId
         break
       }
@@ -403,7 +480,6 @@ function handleScroll() {
   }
 }
 
-// Scroll reveal observer
 let observer: IntersectionObserver | null = null
 
 function setupScrollReveal() {
@@ -415,10 +491,10 @@ function setupScrollReveal() {
         }
       })
     },
-    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
   )
 
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach((el) => {
+  document.querySelectorAll('.reveal, .reveal-scale').forEach((el) => {
     observer!.observe(el)
   })
 }
@@ -432,14 +508,9 @@ onMounted(() => {
   }
   applyTheme()
 
-  // Start typing animation
-  typeText(fullRole.value)
-
-  // Scroll listener
   window.addEventListener('scroll', handleScroll, { passive: true })
   handleScroll()
 
-  // Setup scroll reveal after a brief delay to allow DOM render
   setTimeout(() => {
     setupScrollReveal()
   }, 100)
@@ -448,16 +519,13 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
   if (observer) observer.disconnect()
-  if (typingTimeout) clearTimeout(typingTimeout)
 })
 
-// Re-observe elements when tab changes
 watch(activeTab, () => {
   mobileMenuOpen.value = false
   setTimeout(() => {
     setupScrollReveal()
-    typeText(fullRole.value)
-  }, 200)
+  }, 150)
 })
 
 function applyTheme() {
@@ -498,28 +566,28 @@ function scrollToTop() {
 .fade-enter-active,
 .fade-leave-active {
   transition:
-    opacity 0.5s ease,
-    transform 0.5s ease;
+    opacity 0.35s ease,
+    transform 0.35s ease;
 }
 
 .fade-enter-from {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(10px);
 }
 
 .fade-leave-to {
   opacity: 0;
-  transform: translateY(-20px);
+  transform: translateY(-10px);
 }
 
 .slide-down-enter-active,
 .slide-down-leave-active {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .slide-down-enter-from,
 .slide-down-leave-to {
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(-8px);
 }
 </style>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Background Base -->
+  <rect width="64" height="64" rx="14" fill="#121417"/>
+  
+  <!-- Subtle Inner Architectural Frame -->
+  <rect x="2" y="2" width="60" height="60" rx="12" stroke="#262A30" stroke-width="1.5"/>
+  
+  <!-- Top-Right Sage Accent Dot (Status Indicator) -->
+  <circle cx="52" cy="12" r="3" fill="#78A890"/>
+
+  <!-- Geometric 'H' in Warm Alabaster -->
+  <path d="M13 20H18.5V29.5H27.5V20H33V44H27.5V34.5H18.5V44H13V20Z" fill="#ECEAE5"/>
+
+  <!-- Geometric 'M' in Muted Sage Emerald -->
+  <path d="M37 20H42.2L47 30.5L51.8 20H57V44H52V29.2L47.8 38H46.2L42 29.2V44H37V20Z" fill="#78A890"/>
+</svg>

@@ -2,33 +2,32 @@
   <Transition name="fade">
     <div
       v-if="isOpen"
-      class="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 backdrop-blur-3xl p-4 md:p-12"
+      class="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 backdrop-blur-xl p-4 md:p-10"
       @click.self="close"
     >
-      <!-- Title Bar -->
+      <!-- Top Bar -->
       <div
-        class="absolute top-0 left-0 right-0 h-16 md:h-20 flex items-center justify-between px-6 md:px-10 z-[110] bg-gradient-to-b from-background/80 to-transparent"
+        class="absolute top-0 left-0 right-0 h-16 flex items-center justify-between px-6 md:px-10 z-[110] border-b border-outline-variant/60 bg-background/80 backdrop-blur-md"
       >
         <div class="flex items-center gap-3">
-          <span class="material-symbols-outlined text-primary text-xl">photo_library</span>
-          <h3
-            class="text-on-surface font-bold text-sm md:text-base font-headline truncate max-w-[200px] md:max-w-[400px]"
-          >
+          <span class="font-mono text-xs text-primary">GALLERY</span>
+          <span class="text-outline-variant">/</span>
+          <h3 class="text-on-surface font-medium text-sm truncate max-w-[200px] md:max-w-[400px]">
             {{ title }}
           </h3>
         </div>
         <div class="flex items-center gap-3">
-          <!-- Image Counter Pill -->
           <span
-            class="bg-surface-container-high/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-on-surface-variant border border-outline-variant/15"
+            class="bg-surface-container-high px-2.5 py-1 rounded-md font-mono text-xs text-on-surface-variant border border-outline-variant"
           >
             {{ currentIndex + 1 }} / {{ images.length }}
           </span>
           <button
             @click="close"
-            class="w-10 h-10 rounded-xl bg-surface-container-high/50 hover:bg-primary text-on-surface hover:text-on-primary transition-all duration-300 flex items-center justify-center border border-outline-variant/15 shadow-lg"
+            class="w-9 h-9 rounded-lg bg-surface-container-high hover:bg-primary text-on-surface hover:text-on-primary transition-colors duration-200 flex items-center justify-center border border-outline-variant cursor-pointer"
+            aria-label="Close modal"
           >
-            <span class="material-symbols-outlined text-lg">close</span>
+            <span class="material-symbols-outlined text-[18px]">close</span>
           </button>
         </div>
       </div>
@@ -37,49 +36,48 @@
       <button
         v-if="images.length > 1"
         @click="prev"
-        class="absolute left-3 md:left-8 top-1/2 -translate-y-1/2 z-[110] w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-surface-container-high/50 hover:bg-primary text-on-surface hover:text-on-primary transition-all duration-300 flex items-center justify-center border border-outline-variant/15 shadow-xl backdrop-blur-md group"
+        class="absolute left-3 md:left-8 top-1/2 -translate-y-1/2 z-[110] w-11 h-11 rounded-xl bg-surface-container-high/90 hover:bg-primary text-on-surface hover:text-on-primary transition-colors duration-200 flex items-center justify-center border border-outline-variant shadow-lg cursor-pointer"
+        aria-label="Previous image"
       >
-        <span class="material-symbols-outlined transition-transform group-hover:-translate-x-0.5"
-          >arrow_back_ios_new</span
-        >
+        <span class="material-symbols-outlined text-[18px]">arrow_back</span>
       </button>
 
       <button
         v-if="images.length > 1"
         @click="next"
-        class="absolute right-3 md:right-8 top-1/2 -translate-y-1/2 z-[110] w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-surface-container-high/50 hover:bg-primary text-on-surface hover:text-on-primary transition-all duration-300 flex items-center justify-center border border-outline-variant/15 shadow-xl backdrop-blur-md group"
+        class="absolute right-3 md:right-8 top-1/2 -translate-y-1/2 z-[110] w-11 h-11 rounded-xl bg-surface-container-high/90 hover:bg-primary text-on-surface hover:text-on-primary transition-colors duration-200 flex items-center justify-center border border-outline-variant shadow-lg cursor-pointer"
+        aria-label="Next image"
       >
-        <span class="material-symbols-outlined transition-transform group-hover:translate-x-0.5"
-          >arrow_forward_ios</span
-        >
+        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
       </button>
 
       <!-- Main Image Container -->
       <div
-        class="relative max-w-6xl w-full h-full flex flex-col items-center justify-center gap-6 mt-12"
+        class="relative max-w-5xl w-full h-full flex flex-col items-center justify-center gap-5 mt-12"
       >
-        <div class="relative group w-full flex-1 min-h-0 flex items-center justify-center">
+        <div class="relative w-full flex-1 min-h-0 flex items-center justify-center">
           <Transition :name="slideDirection" mode="out-in">
             <img
               :key="currentIndex"
               :src="images[currentIndex]"
-              class="max-w-full max-h-[60vh] md:max-h-[65vh] object-contain rounded-2xl md:rounded-3xl shadow-[0_40px_80px_rgba(0,0,0,0.4)] border border-outline-variant/10"
+              :alt="`${title} screenshot ${currentIndex + 1}`"
+              class="max-w-full max-h-[64vh] md:max-h-[68vh] object-contain rounded-xl shadow-2xl border border-outline-variant"
               @click.stop
             />
           </Transition>
         </div>
 
         <!-- Thumbnails -->
-        <div class="flex gap-2 md:gap-3 overflow-x-auto pb-4 max-w-full no-scrollbar px-4">
+        <div class="flex gap-2.5 overflow-x-auto pb-2 max-w-full no-scrollbar px-4">
           <button
             v-for="(img, index) in images"
             :key="index"
             @click="currentIndex = index"
-            class="relative shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden border-2 transition-all duration-300"
+            class="relative shrink-0 w-16 h-12 md:w-20 md:h-14 rounded-lg overflow-hidden border transition-all duration-200 cursor-pointer"
             :class="
               currentIndex === index
-                ? 'border-primary ring-4 ring-primary/20 scale-110 shadow-[0_0_20px_var(--primary-glow)]'
-                : 'border-transparent opacity-40 hover:opacity-80 scale-95'
+                ? 'border-primary ring-2 ring-primary/30 opacity-100'
+                : 'border-outline-variant opacity-45 hover:opacity-80'
             "
           >
             <img :src="img" class="w-full h-full object-cover" />
@@ -138,7 +136,6 @@ function prev() {
   currentIndex.value = (currentIndex.value - 1 + props.images.length) % props.images.length
 }
 
-// Keyboard support
 function handleKeydown(e: KeyboardEvent) {
   if (!props.isOpen) return
   if (e.key === 'Escape') close()
@@ -158,7 +155,7 @@ onUnmounted(() => {
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.4s ease;
+  transition: opacity 0.25s ease;
 }
 .fade-enter-from,
 .fade-leave-to {
@@ -169,24 +166,24 @@ onUnmounted(() => {
 .slide-right-leave-active,
 .slide-left-enter-active,
 .slide-left-leave-active {
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .slide-right-enter-from {
   opacity: 0;
-  transform: translateX(60px) scale(0.92);
+  transform: translateX(24px);
 }
 .slide-right-leave-to {
   opacity: 0;
-  transform: translateX(-60px) scale(0.92);
+  transform: translateX(-24px);
 }
 
 .slide-left-enter-from {
   opacity: 0;
-  transform: translateX(-60px) scale(0.92);
+  transform: translateX(-24px);
 }
 .slide-left-leave-to {
   opacity: 0;
-  transform: translateX(60px) scale(0.92);
+  transform: translateX(24px);
 }
 </style>
