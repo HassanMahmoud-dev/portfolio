@@ -25,7 +25,7 @@
               {{ currentData.personalInfo.name }}
             </span>
             <span class="font-mono text-[10px] text-on-surface-variant mt-1">
-              {{ activeTab === 'FullStack' ? 'Full Stack' : 'Frontend' }} · Mid-Level
+              Software Engineer · Full Stack
             </span>
           </div>
         </button>
@@ -48,38 +48,8 @@
           </button>
         </div>
 
-        <!-- Actions (Role Switcher, Theme, Contact) -->
+        <!-- Actions (Theme, Contact) -->
         <div class="flex items-center gap-2.5">
-          <!-- Compact Role Switcher in Header for quick access -->
-          <div
-            class="hidden sm:inline-flex p-1 bg-surface-container border border-outline-variant rounded-lg"
-            role="tablist"
-            aria-label="Engineering Focus"
-          >
-            <button
-              @click="activeTab = 'FullStack'"
-              :class="[
-                'px-2.5 py-1 rounded-md text-xs font-medium transition-all duration-200 cursor-pointer',
-                activeTab === 'FullStack'
-                  ? 'bg-primary text-on-primary shadow-xs'
-                  : 'text-on-surface-variant hover:text-on-surface',
-              ]"
-            >
-              Full Stack
-            </button>
-            <button
-              @click="activeTab = 'Frontend'"
-              :class="[
-                'px-2.5 py-1 rounded-md text-xs font-medium transition-all duration-200 cursor-pointer',
-                activeTab === 'Frontend'
-                  ? 'bg-primary text-on-primary shadow-xs'
-                  : 'text-on-surface-variant hover:text-on-surface',
-              ]"
-            >
-              Frontend
-            </button>
-          </div>
-
           <button
             @click="toggleTheme"
             class="w-9 h-9 rounded-lg border border-outline-variant bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:border-outline transition-colors duration-200 cursor-pointer"
@@ -118,32 +88,6 @@
           v-if="mobileMenuOpen"
           class="md:hidden bg-background/95 backdrop-blur-xl border-b border-outline-variant px-6 pb-6 pt-3"
         >
-          <!-- Mobile Role Switcher -->
-          <div class="flex sm:hidden p-1 bg-surface-container border border-outline-variant rounded-lg mb-4">
-            <button
-              @click="activeTab = 'FullStack'"
-              :class="[
-                'flex-1 py-2 rounded-md text-xs font-medium transition-all duration-200',
-                activeTab === 'FullStack'
-                  ? 'bg-primary text-on-primary'
-                  : 'text-on-surface-variant',
-              ]"
-            >
-              Full Stack Focus
-            </button>
-            <button
-              @click="activeTab = 'Frontend'"
-              :class="[
-                'flex-1 py-2 rounded-md text-xs font-medium transition-all duration-200',
-                activeTab === 'Frontend'
-                  ? 'bg-primary text-on-primary'
-                  : 'text-on-surface-variant',
-              ]"
-            >
-              Frontend Focus
-            </button>
-          </div>
-
           <div class="flex flex-col gap-1">
             <button
               v-for="(section, idx) in navSections"
@@ -176,7 +120,7 @@
         id="hero"
         class="relative max-w-6xl mx-auto px-6 md:px-8 pt-12 pb-20 md:pt-20 md:pb-28"
       >
-        <!-- Top Status Bar / Role Lens Switcher -->
+        <!-- Top Status Bar -->
         <div
           class="reveal flex flex-wrap items-center justify-between gap-4 pb-8 mb-10 border-b border-outline-variant/60"
         >
@@ -190,33 +134,6 @@
             <span class="font-mono text-xs text-on-surface-variant">
               Based in {{ currentData.personalInfo.location }} · Available for new opportunities
             </span>
-          </div>
-
-          <div class="flex items-center gap-2 font-mono text-xs text-on-surface-variant">
-            <span>Lens:</span>
-            <button
-              @click="activeTab = 'FullStack'"
-              :class="[
-                'underline underline-offset-4 cursor-pointer transition-colors',
-                activeTab === 'FullStack'
-                  ? 'text-primary font-medium'
-                  : 'hover:text-on-surface decoration-transparent',
-              ]"
-            >
-              Full-Stack ERP
-            </button>
-            <span>/</span>
-            <button
-              @click="activeTab = 'Frontend'"
-              :class="[
-                'underline underline-offset-4 cursor-pointer transition-colors',
-                activeTab === 'Frontend'
-                  ? 'text-primary font-medium'
-                  : 'hover:text-on-surface decoration-transparent',
-              ]"
-            >
-              Frontend UI
-            </button>
           </div>
         </div>
 
@@ -240,8 +157,9 @@
                 class="reveal delay-200 text-base md:text-lg text-on-surface-variant max-w-2xl leading-relaxed pt-2"
               >
                 I’m <strong class="text-on-surface font-medium">{{ currentData.personalInfo.name }}</strong>,
-                a software engineer experienced in building full-lifecycle ERP platforms, government
-                tax integrations, and real-time operational tools using Vue.js and Node.js.
+                a Software Engineer &amp; Full Stack Developer with over 1.5 years of hands-on experience
+                building ERP systems, web applications, and e-commerce platforms using Vue.js 3, Node.js,
+                and Laravel.
               </p>
             </div>
 
@@ -267,7 +185,7 @@
               </button>
 
               <a
-                href="https://drive.google.com/file/d/1jLgM2r7PBa2IKNg_Ok81payeakBsQdUr/view"
+                :href="currentData.personalInfo.cvUrl"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="px-5 py-2.5 rounded-lg border border-outline-variant bg-surface-container text-on-surface font-medium text-sm hover:border-outline transition-colors flex items-center gap-2"
@@ -310,16 +228,16 @@
               class="reveal delay-400 grid grid-cols-3 gap-4 pt-8 border-t border-outline-variant/60 max-w-xl"
             >
               <div>
-                <div class="font-mono text-xl md:text-2xl font-semibold text-on-surface">ERP &amp; B2B</div>
-                <div class="text-xs text-on-surface-variant mt-0.5">Core Domain Focus</div>
+                <div class="font-mono text-xl md:text-2xl font-semibold text-on-surface">1.5+ Years</div>
+                <div class="text-xs text-on-surface-variant mt-0.5">Full Stack Experience</div>
               </div>
               <div>
-                <div class="font-mono text-xl md:text-2xl font-semibold text-on-surface">Vue 3 + Node</div>
-                <div class="text-xs text-on-surface-variant mt-0.5">Primary Stack</div>
+                <div class="font-mono text-xl md:text-2xl font-semibold text-on-surface">Vue · Node · PHP</div>
+                <div class="text-xs text-on-surface-variant mt-0.5">Vue 3, Express &amp; Laravel</div>
               </div>
               <div>
-                <div class="font-mono text-xl md:text-2xl font-semibold text-on-surface">Production</div>
-                <div class="text-xs text-on-surface-variant mt-0.5">ETA, HMS &amp; Real-time</div>
+                <div class="font-mono text-xl md:text-2xl font-semibold text-on-surface">ERP &amp; Cloud</div>
+                <div class="text-xs text-on-surface-variant mt-0.5">ETA, HMS &amp; E-Commerce</div>
               </div>
             </div>
           </div>
@@ -358,9 +276,7 @@
       </div>
 
       <!-- Content Sections -->
-      <transition name="fade" mode="out-in">
-        <component :is="activeTab === 'FullStack' ? FullStackSection : FrontendSection" />
-      </transition>
+      <FullStackSection />
     </main>
 
     <!-- Back to Top -->
@@ -410,7 +326,7 @@
           </a>
           <a
             class="hover:text-primary transition-colors"
-            href="https://drive.google.com/file/d/1jLgM2r7PBa2IKNg_Ok81payeakBsQdUr/view"
+            :href="currentData.personalInfo.cvUrl"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -429,15 +345,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, defineAsyncComponent, computed, watch } from 'vue'
+import { ref, onMounted, onUnmounted, defineAsyncComponent } from 'vue'
 import fullstackData from '@/data/fullstack.json'
-import frontendData from '@/data/frontend.json'
 
 const FullStackSection = defineAsyncComponent(() => import('@/components/FullStackSection.vue'))
-const FrontendSection = defineAsyncComponent(() => import('@/components/FrontendSection.vue'))
 
 const isDark = ref(true)
-const activeTab = ref<'FullStack' | 'Frontend'>('FullStack')
 const mobileMenuOpen = ref(false)
 const scrolledDown = ref(false)
 const activeSection = ref('hero')
@@ -449,7 +362,7 @@ const navSections = [
   { id: 'experience', label: 'Experience' },
 ]
 
-const currentData = computed(() => (activeTab.value === 'FullStack' ? fullstackData : frontendData))
+const currentData = fullstackData
 
 interface Profile {
   role: string
@@ -457,11 +370,11 @@ interface Profile {
   heroBadges: { name: string; color: string }[]
 }
 
-const currentProfile = computed<Profile>(() => ({
-  role: currentData.value.role,
-  specialization: currentData.value.specialization,
-  heroBadges: currentData.value.heroBadges,
-}))
+const currentProfile: Profile = {
+  role: currentData.role,
+  specialization: currentData.specialization,
+  heroBadges: currentData.heroBadges,
+}
 
 function handleScroll() {
   scrolledDown.value = window.scrollY > 40
@@ -519,13 +432,6 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
   if (observer) observer.disconnect()
-})
-
-watch(activeTab, () => {
-  mobileMenuOpen.value = false
-  setTimeout(() => {
-    setupScrollReveal()
-  }, 150)
 })
 
 function applyTheme() {

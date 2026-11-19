@@ -29,27 +29,27 @@
             </p>
           </div>
 
-          <!-- Mid-level engineering pillars -->
+          <!-- Engineering pillars -->
           <div class="reveal delay-300 grid sm:grid-cols-3 gap-4 pt-4">
             <div class="surface-card p-5 rounded-xl">
               <div class="font-mono text-xs text-primary mb-2">01. Frontend</div>
               <div class="text-sm font-semibold text-on-surface mb-1">Structured State &amp; UI</div>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Clean Vue 3 Composition API components backed by predictable Pinia stores and type-safe contracts.
+                Responsive Vue.js 3, TypeScript, Pinia, Blade, Tailwind CSS, and Bootstrap interfaces crafted from Figma to production.
               </p>
             </div>
             <div class="surface-card p-5 rounded-xl">
               <div class="font-mono text-xs text-secondary mb-2">02. Backend</div>
               <div class="text-sm font-semibold text-on-surface mb-1">Resilient Services</div>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Node.js &amp; Express APIs handling synchronous transactions, WebSockets, and external government gateways.
+                Node.js, Express.js, and Laravel 12 (PHP 8.2) APIs powering Socket.IO real-time apps, Payment Gateways, Digital Signatures, and WhatsApp APIs.
               </p>
             </div>
             <div class="surface-card p-5 rounded-xl">
-              <div class="font-mono text-xs text-tertiary mb-2">03. Database</div>
+              <div class="font-mono text-xs text-tertiary mb-2">03. Data &amp; Hosting</div>
               <div class="text-sm font-semibold text-on-surface mb-1">Relational Modeling</div>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Designing and querying complex schemas in OracleDB and MySQL for healthcare and financial accuracy.
+                Scalable schemas in MySQL and OracleDB with Sequelize ORM, plus reliable production deployment and domain management on cPanel.
               </p>
             </div>
           </div>
@@ -115,13 +115,26 @@
                   </div>
                 </div>
 
-                <button
-                  @click="openGallery(project, 0)"
-                  class="inline-flex items-center gap-2 text-xs font-mono font-medium text-primary hover:underline underline-offset-4 cursor-pointer pt-1"
-                >
-                  <span>Inspect interface screenshots</span>
-                  <span class="material-symbols-outlined text-[16px]">open_in_full</span>
-                </button>
+                <div class="flex flex-wrap items-center gap-4 pt-1">
+                  <button
+                    @click="openGallery(project, 0)"
+                    class="inline-flex items-center gap-2 text-xs font-mono font-medium text-primary hover:underline underline-offset-4 cursor-pointer"
+                  >
+                    <span>Inspect interface screenshots</span>
+                    <span class="material-symbols-outlined text-[16px]">open_in_full</span>
+                  </button>
+
+                  <a
+                    v-if="project.liveUrl"
+                    :href="project.liveUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 text-xs font-mono font-medium text-secondary hover:underline underline-offset-4"
+                  >
+                    <span>Visit Live Site</span>
+                    <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -314,9 +327,44 @@
             </div>
 
             <div class="flex items-center justify-between pt-4 border-t border-outline-variant/60 font-mono text-xs">
-              <span class="text-on-surface-variant">Class of {{ data.education.year }}</span>
+              <span class="text-on-surface-variant">Graduation Year: {{ data.education.year }}</span>
               <span class="px-2.5 py-1 rounded bg-surface-container-high text-primary border border-outline-variant">
                 {{ data.education.grade }}
+              </span>
+            </div>
+          </div>
+
+          <!-- Languages -->
+          <div class="reveal surface-card p-7 rounded-2xl space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs uppercase tracking-wider text-primary">Languages</span>
+              <span class="material-symbols-outlined text-primary text-[18px]">translate</span>
+            </div>
+            <div class="space-y-2.5">
+              <div
+                v-for="lang in data.languages"
+                :key="lang.name"
+                class="flex items-center justify-between text-xs font-mono py-1.5 border-b border-outline-variant/40 last:border-b-0"
+              >
+                <span class="text-on-surface font-medium">{{ lang.name }}</span>
+                <span class="text-on-surface-variant">{{ lang.level }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Soft Skills -->
+          <div class="reveal surface-card p-7 rounded-2xl space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs uppercase tracking-wider text-secondary">Soft Skills</span>
+              <span class="material-symbols-outlined text-secondary text-[18px]">psychology</span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span
+                v-for="skill in data.softSkills"
+                :key="skill"
+                class="px-2.5 py-1 text-xs font-mono rounded-md bg-surface-container-high text-on-surface-variant border border-outline-variant"
+              >
+                {{ skill }}
               </span>
             </div>
           </div>
@@ -377,6 +425,7 @@ interface Project {
   brand: string
   description: string
   techStack: string[]
+  liveUrl?: string
 }
 
 const isGalleryOpen = ref(false)
