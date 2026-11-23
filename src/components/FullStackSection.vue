@@ -35,14 +35,14 @@
               <div class="font-mono text-xs text-primary mb-2">01. Frontend</div>
               <div class="text-sm font-semibold text-on-surface mb-1">Structured State &amp; UI</div>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Responsive Vue.js 3, TypeScript, Pinia, Blade, Tailwind CSS, and Bootstrap interfaces crafted from Figma to production.
+                Responsive Vue.js 3, React 19, Next.js, TypeScript, Pinia, Blade, Tailwind CSS, and Bootstrap interfaces crafted from Figma to production.
               </p>
             </div>
             <div class="surface-card p-5 rounded-xl">
               <div class="font-mono text-xs text-secondary mb-2">02. Backend</div>
               <div class="text-sm font-semibold text-on-surface mb-1">Resilient Services</div>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Node.js, Express.js, and Laravel 12 (PHP 8.2) APIs powering Socket.IO real-time apps, Payment Gateways, Digital Signatures, and WhatsApp APIs.
+                Node.js, Express.js, and Laravel 12/13 (PHP 8.2) APIs powering Socket.IO real-time apps, Payment Gateways, Digital Signatures, and WhatsApp APIs.
               </p>
             </div>
             <div class="surface-card p-5 rounded-xl">

@@ -158,8 +158,8 @@
               >
                 I’m <strong class="text-on-surface font-medium">{{ currentData.personalInfo.name }}</strong>,
                 a Software Engineer &amp; Full Stack Developer with over 1.5 years of hands-on experience
-                building ERP systems, web applications, and e-commerce platforms using Vue.js 3, Node.js,
-                and Laravel.
+                building ERP systems, web applications, and e-commerce platforms using Vue.js 3, React.js,
+                Next.js, Node.js, and Laravel.
               </p>
             </div>
 
@@ -233,7 +233,7 @@
               </div>
               <div>
                 <div class="font-mono text-xl md:text-2xl font-semibold text-on-surface">Vue · Node · PHP</div>
-                <div class="text-xs text-on-surface-variant mt-0.5">Vue 3, Express &amp; Laravel</div>
+                <div class="text-xs text-on-surface-variant mt-0.5">Vue, React, Express &amp; Laravel</div>
               </div>
               <div>
                 <div class="font-mono text-xl md:text-2xl font-semibold text-on-surface">ERP &amp; Cloud</div>

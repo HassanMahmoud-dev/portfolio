@@ -11,17 +11,18 @@
       "subtitle": "Engineering Profile",
       "title": "Building scalable ERP systems, web applications & e-commerce platforms.",
       "paragraphs": [
-        "Software Engineer and Full Stack Developer with over 1.5 years of hands-on experience building ERP systems, web applications, and e-commerce platforms across Vue.js 3, Node.js, and Laravel / PHP ecosystems.",
+        "Software Engineer and Full Stack Developer with over 1.5 years of hands-on experience building ERP systems, web applications, and e-commerce platforms across Vue.js 3, React.js, Next.js, Node.js, and Laravel / PHP ecosystems.",
         "Experienced in developing scalable frontend and backend solutions, OracleDB & MySQL database management, third-party API integrations (Digital Signatures, Payment Gateways, WhatsApp APIs), and real-time Socket.IO applications — focused on writing maintainable code, improving system performance, and delivering reliable software."
       ]
     }
   },
   "role": "Software Engineer | Full Stack Developer",
-  "specialization": "Vue.js 3 · Node.js · Laravel · ERP Systems",
+  "specialization": "Vue.js · React · Next.js · Node.js · Laravel · ERP Systems",
   "heroBadges": [
-    { "name": "Vue.js 3 & TypeScript", "color": "border-outline-variant bg-surface-container text-on-surface" },
+    { "name": "Vue.js 3, React 19 & Next.js", "color": "border-outline-variant bg-surface-container text-on-surface" },
+    { "name": "TypeScript & Tailwind CSS", "color": "border-outline-variant bg-surface-container text-on-surface" },
     { "name": "Node.js & Express.js", "color": "border-outline-variant bg-surface-container text-on-surface" },
-    { "name": "Laravel 12 & PHP 8.2", "color": "border-outline-variant bg-surface-container text-on-surface" },
+    { "name": "Laravel 12/13 & PHP 8.2", "color": "border-outline-variant bg-surface-container text-on-surface" },
     { "name": "OracleDB & MySQL", "color": "border-outline-variant bg-surface-container text-on-surface" },
     { "name": "Socket.IO & Integrations", "color": "border-outline-variant bg-surface-container text-on-surface" }
   ],
@@ -109,9 +110,64 @@
       "color": "text-[#7952b3]",
       "category": "UI Toolkit",
       "url": "https://getbootstrap.com/"
+    },
+    {
+      "name": "React.js",
+      "icon": "fa-brands fa-react",
+      "color": "text-[#61dafb]",
+      "category": "UI Library",
+      "url": "https://react.dev/"
+    },
+    {
+      "name": "Next.js",
+      "icon": "fa-solid fa-layer-group",
+      "color": "text-on-surface",
+      "category": "React Framework",
+      "url": "https://nextjs.org/"
+    },
+    {
+      "name": "Git & GitHub",
+      "icon": "fa-brands fa-github",
+      "color": "text-on-surface",
+      "category": "Version Control",
+      "url": "https://github.com/"
+    },
+    {
+      "name": "Vite",
+      "icon": "fa-solid fa-bolt-lightning",
+      "color": "text-[#646cff]",
+      "category": "Build Tool",
+      "url": "https://vite.dev/"
+    },
+    {
+      "name": "Postman",
+      "icon": "fa-solid fa-paper-plane",
+      "color": "text-[#ff6c37]",
+      "category": "API Testing",
+      "url": "https://www.postman.com/"
+    },
+    {
+      "name": "Figma",
+      "icon": "fa-brands fa-figma",
+      "color": "text-[#a259ff]",
+      "category": "UI / UX Design",
+      "url": "https://www.figma.com/"
     }
   ],
   "projects": [
+    {
+      "brand": "Freelance · E-Commerce Platform",
+      "title": "Shamoukh Perfumes — E-Commerce Platform",
+      "liveUrl": "https://shamoukh-perfumes.com/",
+      "description": "Full-stack luxury perfume e-commerce platform built with Laravel 13, React 19, and Tailwind CSS featuring a responsive storefront and checkout experience. Includes passwordless user authentication via WhatsApp OTP verification, automated WhatsApp order booking confirmations, and dynamic shipping fee calculation based on customer governorate.",
+      "techStack": ["Laravel 13", "React 19", "Tailwind CSS", "WhatsApp OTP", "MySQL"],
+      "images": [
+        "/projects/FullStack/Shamoukh/1.png",
+        "/projects/FullStack/Shamoukh/2.png",
+        "/projects/FullStack/Shamoukh/3.png",
+        "/projects/FullStack/Shamoukh/4.png"
+      ]
+    },
     {
       "brand": "N SEVEN · Cloud ERP & E-Commerce",
       "title": "Data Tech — IT & Cloud ERP Solutions Platform",
@@ -184,6 +240,17 @@
         "Whatsavvy — WhatsApp-Integrated Call Center: Developed a high-end call center interface integrated with Green-API, implementing Figma designs into a modern Glassmorphism UI with an optimized Dark Mode.",
         "Built real-time messaging with Socket.IO and call-center reporting dashboards using Vue.js and Bootstrap."
       ]
+    },
+    {
+      "role": "Full Stack Developer (Freelance)",
+      "company": "Shamoukh Perfumes — E-Commerce Platform",
+      "period": "Freelance Project",
+      "colorClass": "bg-tertiary",
+      "achievements": [
+        "Developed a full-stack perfume e-commerce platform using Laravel 13, React 19, and Tailwind CSS with a responsive storefront and checkout experience.",
+        "Implemented passwordless user authentication via WhatsApp OTP verification and automated WhatsApp order booking confirmations for customers.",
+        "Engineered dynamic shipping fee calculation based on customer governorate to streamline order processing and delivery pricing."
+      ]
     }
   ],
   "skills": [
@@ -191,25 +258,25 @@
       "category": "Frontend Development",
       "icon": "web",
       "color": "text-primary",
-      "items": ["HTML5 & CSS3", "JavaScript & TypeScript", "Vue.js 3 & Pinia", "Tailwind CSS & Bootstrap", "Blade Templates"]
+      "items": ["HTML5 & CSS3", "JavaScript & TypeScript", "Vue.js 3 & Pinia", "React.js & Next.js", "Tailwind CSS & Bootstrap", "Blade Templates"]
     },
     {
       "category": "Backend & Technologies",
       "icon": "dns",
       "color": "text-secondary",
-      "items": ["Node.js & Express.js", "PHP 8.2 & Laravel 12", "RESTful APIs", "Socket.IO (Real-time)", "Sequelize ORM"]
+      "items": ["Node.js & Express.js", "PHP 8.2 & Laravel 12/13", "RESTful APIs", "Socket.IO (Real-time)", "Sequelize ORM"]
     },
     {
       "category": "Databases & Integrations",
       "icon": "database",
       "color": "text-tertiary",
-      "items": ["MySQL & OracleDB", "Payment Gateways", "Digital Signatures", "WhatsApp APIs (Green-API)", "cPanel Deployment"]
+      "items": ["MySQL & OracleDB", "Payment Gateways", "Digital Signatures", "WhatsApp APIs (Green-API & OTP)", "cPanel Deployment"]
     },
     {
       "category": "Tools & IT Systems",
       "icon": "terminal",
       "color": "text-primary",
-      "items": ["Git & GitHub", "Vite & Postman", "Figma", "Hardware Assembly & Setup", "Windows Troubleshooting"]
+      "items": ["Git & GitHub", "Vite & Postman", "Figma", "Computer Hardware Assembly", "Software Installation & Configuration", "Windows Troubleshooting"]
     }
   ],
   "education": {
